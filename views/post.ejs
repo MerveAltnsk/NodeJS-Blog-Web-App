@@ -1,0 +1,17 @@
+<%- include("partials/header") %>
+
+<div class="main-container">
+  <div class="inner-container">
+    <h2><%= post.title %></h2>
+    <p><%= post.content %></p>
+
+    <div class="post-actions">
+      <a href="/edit/<%= post.id %>">✏️ Edit</a>
+      <form action="/delete/<%= post.id %>" method="POST" style="display:inline;">
+        <button type="submit">🗑️ Delete</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<%- include("partials/footer") %>
