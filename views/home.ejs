@@ -10,11 +10,14 @@
         <p><%= post.content.substring(0, 100) %>...</p>
         <div class="post-actions">
           <a href="/edit/<%= post.id %>" class="btn btn-edit">✏️ Edit</a>
-          <form action="/delete/<%= post._id %>" method="POST" style="display:inline;">
-            <button type="submit">🗑️ Delete</button>
-          </form>          
+
+
+          <form action="/delete/<%= post.id %>?_method=DELETE" method="POST" style="display:inline;">
             <button type="submit" class="btn btn-delete">🗑️ Delete</button>
-          </form>          
+          </form>
+          
+          
+          
         </div>
       </div>
     <% }); %>

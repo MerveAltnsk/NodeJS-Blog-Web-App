@@ -7,12 +7,6 @@ const methodOverride = require('method-override');
 app.use(methodOverride('_method'));
 
 
-const mongoose = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1:27017/blogDB', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
-
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -50,15 +44,17 @@ app.post("/edit/:id", (req, res) => {
 });
 
 // DELETE methodu ile gelen istek
+// DELETE methodu ile gelen istek
 app.delete('/delete/:id', (req, res) => {
-    const postId = req.params.id;
-  
-    // posts dizisinden postu silme
-    posts = posts.filter(post => post.id !== postId);
-  
-    // Silindikten sonra ana sayfaya yönlendir
-    res.redirect('/');
-  });
+  const postId = req.params.id;
+
+  // posts dizisinden postu silme
+  posts = posts.filter(post => post.id !== postId);
+
+  // Silindikten sonra ana sayfaya yönlendir
+  res.redirect('/');
+});
+
   
 
 app.listen(PORT, () => {
